@@ -1,0 +1,42 @@
+<nav class="fixed flex-none top-0 start-0 z-50 w-full border-b border-gray-800/60 bg-gray-950/80 backdrop-blur-md">
+  <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
+
+    <!-- Logo / Marca -->
+    <a routerLink="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <span class="self-center text-xl font-semibold tracking-tight text-white">CursosApp</span>
+    </a>
+
+    <!-- Menú de navegación -->
+    <div class="w-full md:block md:w-auto" id="navbar-solid">
+      <ul class="mt-4 flex space-y-2 font-medium md:mt-0 md:flex-row md:space-x-8 md:space-y-0 rtl:space-x-reverse">
+
+        <li>
+          <a routerLink="/cursos" [routerLinkActive]="['!text-white', 'after:scale-x-100', 'font-semibold']"
+            [routerLinkActiveOptions]="{exact: true}" class="cursor-pointer relative block py-2 text-gray-400 transition-colors duration-200 hover:text-white md:p-0 after:absolute 
+            after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:scale-x-0 after:bg-indigo-500 after:transition-transform 
+            after:duration-300">
+            Cursos
+          </a>
+        </li>
+
+        <li>
+          <a routerLink="/alumnos" [routerLinkActive]="['!text-white', 'after:scale-x-100', 'font-semibold']" class="cursor-pointer relative block py-2 text-gray-400 transition-colors duration-200 hover:text-white md:p-0 after:absolute 
+            after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:scale-x-0 after:bg-indigo-500 after:transition-transform 
+            after:duration-300">
+            Alumnos
+          </a>
+        </li>
+
+        <li>
+          <a routerLink="/examenes" [routerLinkActive]="['!text-white', 'after:scale-x-100', 'font-semibold']" class="cursor-pointer relative block py-2 text-gray-400 transition-colors duration-200 hover:text-white md:p-0 after:absolute 
+            after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:scale-x-0 after:bg-indigo-500 after:transition-transform 
+            after:duration-300">
+            Exámenes
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</nav>

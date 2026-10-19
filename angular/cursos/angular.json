@@ -28,6 +28,10 @@
             "styles": [
               "src/styles.css"
             ],
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.slim.js",
+              "./node_modules/popper.js/dist/umd/popper.min.js"
+            ],
             "server": "src/main.server.ts",
             "outputMode": "server",
             "security": {
@@ -74,7 +78,14 @@
           "defaultConfiguration": "development"
         },
         "test": {
-          "builder": "@angular/build:unit-test"
+          "builder": "@angular/build:unit-test",
+          "styles": [
+            "src/styles.css"
+          ],
+          "scripts": [
+            "./node_modules/jquery/dist/jquery.slim.js",
+            "./node_modules/@popperjs/core/dist/umd/popper.min.js"
+          ]
         }
       }
     }

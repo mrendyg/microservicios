@@ -1,8 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLinkWithHref, RouterLinkActive } from '@angular/router';
+import { AlumnosComponent } from './components/alumnos/alumnos.component';
+import { LayoutModule } from './layout/layout-module';
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterLinkActive, RouterLinkWithHref, LayoutModule],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
