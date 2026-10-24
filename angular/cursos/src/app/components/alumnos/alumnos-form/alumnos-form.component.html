@@ -1,0 +1,57 @@
+<div class="mt-10 px-4 max-w-7xl mx-auto">
+  <h1
+    class="mb-6 text-3xl font-extrabold tracking-tight text-heading sm:text-4xl md:text-5xl border-b border-dashed border-default pb-4">
+    {{titulo}}
+  </h1>
+  <div class="flex justify-between w-full">
+    <div>
+      <button routerLink="/alumnos"
+        class="p-2 text-white bg-[#FF2929] rounded-sm box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+        Atras
+      </button>
+    </div>
+    <div>
+      <button (click)="alumno.id? editar(): crear()"
+        class="p-2 w-50 h-15 text-white bg-[#2952FF] rounded-sm box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+        {{ alumno?.id ? 'Actualizar' : 'Crear' }}
+      </button>
+    </div>
+  </div>
+  <div>
+    <form action="">
+      <div class="form-group">
+        <label for="nombre" class="block text-gray-700 text-sm font-bold mb-2">Nombre</label>
+        <input type="text" name="nombre"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="nombre" type="text" placeholder="Nombre del alumno" [(ngModel)]="alumno.nombre">
+        @if (error && error.nombre) {
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+          <span class="block sm:inline">{{ error.nombre }}</span>
+        </div>
+        }
+      </div>
+      <div class="form-group">
+        <label for="apellido" class="block text-gray-700 text-sm font-bold mb-2">Apellido</label>
+        <input type="text" name="apellido"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="apellido" type="text" placeholder="Apellido del alumno" [(ngModel)]="alumno.apellido">
+        @if (error && error.apellido) {
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+          <span class="block sm:inline">{{ error.apellido }}</span>
+        </div>
+        }
+      </div>
+      <div class="form-group">
+        <label for="nombre" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+        <input type="text" name="email"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="email" type="text" placeholder="Email del alumno" [(ngModel)]="alumno.email">
+        @if (error && error.email) {
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+          <span class="block sm:inline">{{ error.email }}</span>
+        </div>
+        }
+      </div>
+    </form>
+  </div>
+</div>

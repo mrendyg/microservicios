@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  # 1. Servidor Eureka (Descubrimiento de servicios)
+  eureka-server:
+    build:
+      context: ./eureka_server
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    networks:
+      - red-microservicios
+
+  # 2. API Gateway
+  gateway:
+    build:
+      context: ./gateway_microservicios
+      dockerfile: Dockerfile
+    ports:
+      - "8090:8090"
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://eureka-server:8761/eureka/
+    depends_on:
+      - eureka-server
+    networks:
+      - red-microservicios
+
+  # 3. Microservicio de Usuarios (Ejemplo)
+  usuarios-service:
+    build:
+      context: ./usuarios_microservicios
+      dockerfile: Dockerfile
+    ports:
+      - "9001:9001"
+    environment:
+      - PORT=9001
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://eureka-server:8761/eureka/
+    depends_on:
+      - eureka-server
+    networks:
+      - red-microservicios
+
+  # 4. Frontend Angular
+  angular-app:
+    build:
+      context: ./angular
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    depends_on:
+      - gateway
+    networks:
+      - red-microservicios
+
+networks:
+  red-microservicios:
+    driver: bridge

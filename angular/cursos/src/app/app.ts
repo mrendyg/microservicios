@@ -1,10 +1,18 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet, RouterLinkWithHref, RouterLinkActive } from '@angular/router';
-import { AlumnosComponent } from './components/alumnos/alumnos.component';
+import { RouterOutlet } from '@angular/router';
 import { LayoutModule } from './layout/layout-module';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  imports: [RouterOutlet, RouterLinkActive, RouterLinkWithHref, LayoutModule],
+  imports: [
+    RouterOutlet,
+    LayoutModule,
+    HttpClientModule,
+    CommonModule,
+    FormsModule
+  ],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',

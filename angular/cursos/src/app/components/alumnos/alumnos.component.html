@@ -1,7 +1,70 @@
-<div class="mt-10">
-    <h1 class="mb-4 text-4xl font-bold tracking-tight text-heading md:text-5xl lg:text-6xl">{{titulo}}</h1>
-</div>
-<div class="p-5">
-    <h1 class="text-2xl font-bold">Página de Alumnos</h1>
-    <p>Este es el texto de prueba para la sección de Alumnos.</p>
+<div class="mt-10 px-4 max-w-7xl mx-auto">
+    <!-- Título más refinado y balanceado -->
+    <h1
+        class="mb-6 text-3xl font-extrabold tracking-tight text-heading sm:text-4xl md:text-5xl border-b border-dashed border-default pb-4">
+        {{titulo}}
+    </h1>
+    <div>
+        <button routerLink="/alumnos/form"
+            class="p-2 m-2 text-white bg-[#2952FF] rounded-sm box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+            Nuevo Alumno
+        </button>
+    </div>
+    <!-- Contenedor de la tabla con sombras y bordes mejorados -->
+    <div class="relative overflow-hidden bg-neutral-primary-soft shadow-md sm:rounded-xl border border-default">
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left text-body min-w-[800px]">
+                <!-- Cabecera con texto en mayúsculas pequeñas, más espacio y fondo sutil -->
+                <thead
+                    class="bg-neutral-secondary-soft/70 border-b border-default text-xs uppercase tracking-wider text-heading/80">
+                    <tr>
+                        <th scope="col" class="px-6 py-4 font-semibold w-16">ID</th>
+                        <th scope="col" class="px-6 py-4 font-semibold">Nombre</th>
+                        <th scope="col" class="px-6 py-4 font-semibold">Apellido</th>
+                        <th scope="col" class="px-6 py-4 font-semibold">Email</th>
+                        <th scope="col" class="px-6 py-4 font-semibold text-right">Creado en</th>
+                        <th scope="col" class="px-6 py-4 font-semibold">Editar</th>
+                    </tr>
+                </thead>
+
+                <!-- Cuerpo con filas interactivas y suaves transiciones -->
+                <tbody class="divide-y divide-default/60">
+                    <tr *ngFor="let alumno of alumnos"
+                        class="group bg-neutral-primary hover:bg-gray-100/80 dark:hover:bg-neutral-800/50 transition-colors duration-150 ease-in-out">
+
+                        <!-- ID -->
+                        <td class="px-6 py-4 font-semibold text-xs text-body/70">
+                            #{{alumno.id}}
+                        </td>
+
+                        <!-- Nombre -->
+                        <td class="px-6 py-4 font-semibold text-heading whitespace-nowrap">
+                            {{alumno.nombre}}
+                        </td>
+
+                        <!-- Apellido -->
+                        <td class="px-6 py-4 font-medium text-body/90 whitespace-nowrap">
+                            {{alumno.apellido}}
+                        </td>
+
+                        <!-- Email -->
+                        <td class="px-6 py-4 font-normal text-body/80 lowercase">
+                            {{alumno.email}}
+                        </td>
+
+                        <!-- Fecha -->
+                        <td class="px-6 py-4 font-normal text-body/70 text-right text-xs whitespace-nowrap">
+                            {{alumno.createAt | date: 'yyyy/MM/dd'}}
+                        </td>
+                        <td>
+                            <button [routerLink]="['/alumnos/form', alumno.id]"
+                                class="p-2 m-2 text-white bg-[#21AAD1] rounded-sm box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+                                Editar
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
